@@ -35,3 +35,36 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import '@ionic/angular/css/palettes/dark.system.css';
+
+:root{
+    --color-background-main: rgb(48, 57, 111);
+    --color-caret-color: rgb(17, 14, 200);
+    --color-background: rgba(213, 211, 211, 0.4);
+}
+
+.custom-card {
+    background-color: var(--color-background); 
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.05); 
+    margin: 10px;
+    padding: 2px;
+}
+.custom-card-title {
+    font-size: 2rem;
+    color: black; 
+    font-weight: bold;
+    text-align: center; 
+}
+.custom-card-content {
+    color: black; 
+    text-align: justify; 
+}
+
+
+.custom-button {
+    --background: var(--color-background-main); 
+    --color: white;                                 
+    --padding: 12px 24px;             
+}
+.custom-cursor {
+    --highlight-color-valid: var(--color-caret-color); 
+}

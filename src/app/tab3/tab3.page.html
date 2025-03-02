@@ -1,17 +1,43 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 3
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-my-header name="Лабораторна робота №3"></app-my-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-card class="custom-card">
+    <ion-card-header>
+      <ion-card-title class="custom-card-title">Завдання 3</ion-card-title>
+    </ion-card-header>
+    <ion-card-content class="custom-card-content">
+      <p>Згенерувати матрицю розміром NxN. Виокремити за допомогою
+        кольору усі додатні елементи кратні 5, якщо їх кількість непарна.</p>
+    </ion-card-content>
+  </ion-card>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title> Введіть розмір матриці NxN:</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floating">N</ion-label>
+        <ion-input class="custom-cursor" type="number" [(ngModel)]="N"></ion-input>
+      </ion-item>
+      <ion-button class="custom-button" expand="full" (click)="generateMatrix()">Генерувати матрицю</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Згенерована матриця</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <table class="matrix-table">
+        <tr *ngFor="let row of matrix; let i = index">
+          <td *ngFor="let num of row; let j = index"
+              [class.highlighted]="isHighlighted(i, j)">
+            {{ num }}
+          </td>
+        </tr>
+      </table>
+    </ion-card-content>
+  </ion-card>
+
 </ion-content>

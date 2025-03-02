@@ -1,17 +1,37 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-my-header name="Лабораторна робота №1"></app-my-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-card class="custom-card">
+    <ion-card-header>
+      <ion-card-title class="custom-card-title">Завдання 1</ion-card-title>
+    </ion-card-header>
+    <ion-card-content class="custom-card-content">
+      <p>Задано три числа. Якщо всі вони парні, то знайти їх добуток. В іншому випадку – квадрат суми, якщо добуток їхніх цифр парний.</p>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Введіть три числа:</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floating">Число 1</ion-label>
+        <ion-input class="custom-cursor" type="number" [(ngModel)]="num1"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Число 2</ion-label>
+        <ion-input class="custom-cursor"  type="number" [(ngModel)]="num2"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Число 3</ion-label>
+        <ion-input class="custom-cursor" type="number" [(ngModel)]="num3"></ion-input>
+      </ion-item>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+      <ion-button class="custom-button" expand="full" (click)="calculate()">Обчислити</ion-button>
+
+      <ion-text *ngIf="result !== null">
+        <p><strong>Результат:</strong> {{ result }}</p>
+      </ion-text>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

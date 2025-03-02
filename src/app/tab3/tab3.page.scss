@@ -1,0 +1,16 @@
+.matrix-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+  
+.matrix-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    background-color: #f9f9f9; 
+}
+  
+.matrix-table td.highlighted {
+    background-color: blue;
+    color: white;
+}

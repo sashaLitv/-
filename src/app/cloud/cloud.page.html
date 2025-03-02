@@ -1,0 +1,48 @@
+<app-my-header name="Лабораторна робота №2"></app-my-header>
+
+<ion-content>
+    <ion-card class="custom-card">
+        <ion-card-header>
+          <ion-card-title class="custom-card-title">Завдання</ion-card-title>
+        </ion-card-header>
+        <ion-card-content class="custom-card-content">
+          <p>Вивести інформацію, згрупувавши читачів по вулицям та вивести графік по кількості читачів по вулицям. 
+            Читач має поля: номер читацького, ПІБ читача, адреса, телефон.</p>
+        </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+        <ion-card-header>
+            <ion-card-title> Список читачів, відсортовані за адресою: </ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            <ion-list>
+                <ion-item *ngFor="let reader of readers.readers; index as i">
+                    <ion-card class="reader-card">
+                        <ion-card-header class="reader-card-header">
+                            <ion-card-title class="reader-name">
+                                {{ reader.name.split(' ')[0] }}<br>
+                                {{ reader.name.split(' ')[1] }}<br>
+                                {{ reader.name.split(' ')[2] }}
+                            </ion-card-title>
+                        </ion-card-header>
+                        <ion-card-content class="reader-content"> 
+                            <p><strong>Номер читацького:</strong> {{ reader.id }}</p>
+                            <p><strong>Адреса:</strong> {{ reader.address }}</p>
+                            <p><strong>Телефон:</strong> {{ reader.phone }}</p>
+                        </ion-card-content>
+                    </ion-card>
+                </ion-item>
+            </ion-list>
+        </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+        <ion-card-header>
+          <ion-card-title> Графік кількості читачів по вулицям: </ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <canvas #lineCanvas></canvas>
+        </ion-card-content>
+    </ion-card>
+</ion-content>
