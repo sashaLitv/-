@@ -38,6 +38,7 @@
 
 :root{
     --color-background-main: rgb(48, 57, 111);
+    --color-background-main-active: rgb(61, 73, 145);
     --color-caret-color: rgb(17, 14, 200);
     --color-background: rgba(213, 211, 211, 0.4);
 }
@@ -67,4 +68,55 @@
 }
 .custom-cursor {
     --highlight-color-valid: var(--color-caret-color); 
+}
+
+
+ion-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 10px; 
+    justify-content: center; 
+    padding: 10px;
+}
+ion-item {
+    --border-width: 0; 
+    --inner-border-width: 0;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+}
+
+.reader-card, .householdItem-card {
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+}
+
+.reader-name, .householdItem-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+  
+.reader-content, .householdItem-content {
+    font-size: 1rem;
+}
+  
+.reader-content p, .householdItem-content p {
+    margin-bottom: 10px;
+}
+  
+.reader-card-header, .householdItem-card-header {
+    background-color: #9cacbdd5;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 10px;
 }

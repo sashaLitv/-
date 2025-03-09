@@ -1,0 +1,50 @@
+<app-my-header name="Лабораторна робота №3"></app-my-header>
+
+<ion-content>
+    <div class="row-tasks">
+        <ion-card class="custom-card">
+            <ion-card-header>
+              <ion-card-title class="custom-card-title">Завдання 1</ion-card-title>
+            </ion-card-header>
+            <ion-card-content class="custom-card-content">
+              <p>Скласти програму з абстрактним батьківським класом і двома об`єктами – нащадками. Інформація про класи
+                 зберігається у JSON файлі, що зберігається у хмарі. Реалізувати циклічне виведення параметрів об`єктів, 
+                 використовуючи поліморфний контейнер - масив об`єктів базового класу .
+              </p>
+            </ion-card-content>
+        </ion-card>
+        <ion-card class="custom-card">
+            <ion-card-header>
+              <ion-card-title class="custom-card-title">Завдання 2</ion-card-title>
+            </ion-card-header>
+            <ion-card-content class="custom-card-content">
+              <p>Виконати обрахунки відповідно до варіанту - Знайти 5 предметів з найвищою міцністю.</p>
+            </ion-card-content>
+        </ion-card>
+    </div>
+
+    <ion-card>
+        <ion-card-header>
+            <ion-card-title> Всі побутові прилади: </ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            <ion-list>
+                <ion-item *ngFor="let item of householdItems; let i = index">
+                    <ion-card class="householdItem-card">
+                        <ion-card-header class="householdItem-card-header" [id]="'header-' + i">
+                            <ion-card-title class="householdItem-name">{{ item.name }}</ion-card-title>
+                        </ion-card-header>
+                        <ion-card-content class="householdItem-content" [ngClass]="{'highlight': item.isHighlighted}"> 
+                            <p [innerHTML]="item.displayInfo()"></p>
+                        </ion-card-content>
+                    </ion-card>
+                </ion-item>
+            </ion-list>
+            <div class="button-container">
+                <button (click)="top5Durability(householdItems)"> Знайти найміцніші </button>
+            </div>
+        </ion-card-content>
+    </ion-card>
+    
+
+</ion-content>
