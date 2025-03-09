@@ -40,7 +40,7 @@ export class AbstractClassPage implements OnInit {
             this.data[index].name, 
             this.data[index].material, 
             this.data[index].durability, 
-            this.data[index]['diameter'] | this.data[index]['volume']);
+            this.data[index]['diameter'] | this.data[index]['volume'] | this.data[index]['sharpness']);
       
           this.householdItems.push(h);
           index++;
@@ -63,11 +63,11 @@ export class AbstractClassPage implements OnInit {
   }
 
   highlightTopItems(top5: { item: HouseholdItem, index: number }[]): void {
-    top5.forEach(({ index }) => {
-      let headerElement = document.getElementById('header-' + index);
+    top5.forEach((element, iteration) => {  
+      let headerElement = document.getElementById('header-' + element.index);
   
       if (headerElement) {
-        let lightness = 100 - (index * 10); 
+        let lightness = (iteration * 20) + 20;  
         headerElement.style.backgroundColor = `hsl(200, 100%, ${lightness}%)`; 
       }
     });
