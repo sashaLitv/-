@@ -1,0 +1,32 @@
+ion-label {
+    font-weight: bold;
+} 
+ion-input {
+    width: 100%; 
+}
+ion-label {
+    white-space: nowrap;  
+    text-overflow: ellipsis;  
+    width: auto;  
+}
+.input-container ion-input {
+    margin-left: 0.5rem; 
+}
+
+table {
+    width: 100%; 
+    max-width: 800px; 
+    margin: 20px auto; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+th, td {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+canvas{
+    margin-top: 20px;
+    width: 100%;
+}

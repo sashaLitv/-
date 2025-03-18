@@ -1,4 +1,3 @@
-import { Pan } from "./pan";
 
 export type HouseholdItemName = "Сковорідка" | "Каструля" | "Ніж";
 export type HouseholdItemMap = {

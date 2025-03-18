@@ -1,0 +1,93 @@
+<app-my-header name="Лабораторна робота №5"></app-my-header>
+
+<ion-content>
+  <ion-card class="custom-card">
+    <ion-card-title class="custom-card-title">
+      <p>Мій варіант:</p>
+    </ion-card-title>
+    <ion-card-content class="custom-card-content">
+      <p>
+        Функція: <span class="math-content">{{ function }}</span><br>
+        Ряд Тейлора: <span class="math-content">{{ taylor_series}} </span> <br>
+        Діапазон:<span class="math-content">{{ range }}</span><br>
+      </p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="custom-card">
+    <ion-card-title class="custom-card-title">
+      <p>Завдання по роботі з сервісами:</p>
+    </ion-card-title>
+    <ion-card-content class="custom-card-content">
+      <p>1. Розробити сервіс для табулювання функції відповідно до варіанту <br>
+        2. Розробити сервіс для розрахунку значень функції за допомогою ряду відповідно до варіанту <br>
+        3. Розробити сервіс для розрахунку значень функції за допомогою рекурсії відповідно до варіанту <br>
+        4. Розробити сервіс для логування обчислених значень у консоль та використати його у попередніх трьох сервісах <br>
+        5. У основному застосунку підключити сервіси, вивести результати усіх розрахунків та побудувати графіки для усіх
+        обрахунків. <br>
+        Для перевірки роботи розроблених сервісів необхідно використовувати Unit тести. Необхідно протестувати 
+        проведення розрахунків
+      </p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title> Введіть значення: </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item class="input-container">
+        <ion-label>Початковий x:</ion-label>
+        <ion-input type="number" [(ngModel)]="startX"></ion-input>
+      </ion-item>
+      
+      <ion-item class="input-container">
+        <ion-label>Кінцевий x:</ion-label>
+        <ion-input type="number" [(ngModel)]="endX"></ion-input>
+      </ion-item>
+      
+      <ion-item class="input-container">
+        <ion-label>Крок:</ion-label>
+        <ion-input type="number" [(ngModel)]="h"></ion-input>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title style="font-size: 1.4rem;">Порівняльна таблиця результатів:</ion-card-title>
+    </ion-card-header>
+    <ion-card-content class="custom-card-content">
+        <table border=1>
+          <thead>
+            <tr>
+              <th>x</th>
+              <th>f(x) - Tab</th>
+              <th>f(x) - Taylor Series</th>
+              <th>f(x) - Recursion</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let xValue of xx; let i = index">
+              <td>{{ xValue }}</td>
+              <td>{{ yyTab[i] }}</td>
+              <td>{{ yySeries[i] }}</td>
+              <td>{{ yyRecursion[i] }}</td>
+            </tr>
+          </tbody>
+        </table>    
+      <div class="button-container">
+        <button (click)="calculate(startX, endX, h)">Розрахувати</button>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title style="font-size: 1.4rem;">Результати усіх розрахунків та побудувані графіки для усіх обрахунків:</ion-card-title>
+    </ion-card-header>
+    <ion-card-content class="custom-card-content">
+      <canvas #lineCanvas></canvas>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
