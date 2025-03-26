@@ -1,0 +1,93 @@
+<app-my-header name="Лабораторна робота №6"></app-my-header>
+
+<ion-content>
+  <ion-card class="custom-card">
+    <ion-card-header>
+      <ion-card-title class="custom-card-title">Мій варіант</ion-card-title>
+    </ion-card-header>
+    <ion-card-content class="custom-card-content">
+      <p>Тема: Прокат автомобілів: Легкові машини, вантажівки, мотоцикли. <br>
+        SOLID: Додати нову категорію товарів.</p>
+    </ion-card-content>
+  </ion-card>
+  
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title class="custom-paragraph"> Прокат автомобілів </ion-card-title>
+    </ion-card-header>
+    <ion-card-content class="custom-card-content">
+      <ion-card *ngFor="let vehicle of vehicleReadService.vehicles" class="vehicle-card">
+        <ion-img 
+          *ngIf="vehicle.getType() === 'Passenger Car'" 
+          src="../../assets/picture/car.png" class="vehicle-image">
+        </ion-img>
+      
+        <ion-img 
+          *ngIf="vehicle.getType() === 'Truck'" 
+          src="../../assets/picture/truck.png" class="vehicle-image">
+        </ion-img>
+      
+        <ion-img 
+          *ngIf="vehicle.getType() === 'Motorbike'" 
+          src="../../assets/picture/motorbike.png" class="vehicle-image">
+        </ion-img>
+      
+        <ion-img 
+          *ngIf="vehicle.getType() === 'Bicycle'" 
+          src="../../assets/picture/bicycle.png" class="vehicle-image">
+        </ion-img>
+      
+        <ion-card-header>
+          <ion-card-title style="font-size: 1.3rem; margin-top: 14vh;" class="custom-paragraph">{{ vehicle.getType() }} - (ID: {{ vehicle.getID() }})</ion-card-title>
+        </ion-card-header>
+      
+        <ion-card-content>
+          <div *ngFor="let detail of vehicle.getDetails()">
+            <p>{{ detail }}</p>
+          </div>
+          <div *ngIf="!vehicle.isAvailable()">
+              <div class="status-display">
+                <p>{{ getStatusMessage(vehicle) }}</p>
+              </div>
+            <ng-container [ngSwitch]="vehicle.constructor.name">
+              
+              <div class="special-container-button" *ngSwitchCase="'Motorbike'">
+                <button (click)="callSpecialFunction('move', vehicle)">Move</button>
+                <button (click)="callSpecialFunction('drift', vehicle)">Drift</button>
+                <button (click)="callSpecialFunction('stop', vehicle)">Stop</button>
+                <button (click)="callSpecialFunction('wheelie', vehicle)">Do Wheelie</button>
+              </div>
+             
+              <div class="special-container-button" *ngSwitchCase="'Bicycle'">
+                <button (click)="callSpecialFunction('ride', vehicle)">Ride</button>
+                <button (click)="callSpecialFunction('stop', vehicle)">Stop</button>
+                <button (click)="callSpecialFunction('wheelie', vehicle)">Do Wheelie</button>
+                <button (click)="callSpecialFunction('remove', vehicle)">Remove Chain</button>
+                <button (click)="callSpecialFunction('reinstall', vehicle)">Reinstall Chain</button>
+              </div>
+          
+              <div class="special-container-button" *ngSwitchCase="'Truck'">
+                <button (click)="callSpecialFunction('move', vehicle)">Move</button>
+                <button (click)="callSpecialFunction('stop', vehicle)">Stop</button>
+                <button (click)="callSpecialFunction('current', vehicle)">Current Capacity</button>
+                <button (click)="callSpecialFunction('load', vehicle)">Load Cargo</button>
+              </div>
+          
+              <div class="special-container-button" *ngSwitchCase="'PassengerCar'">
+                <button (click)="callSpecialFunction('move', vehicle)">Move</button>
+                <button (click)="callSpecialFunction('drift', vehicle)">Drift</button>
+                <button (click)="callSpecialFunction('stop', vehicle)">Stop</button>
+                <button (click)="callSpecialFunction('sit', vehicle)">Sit</button>
+                <button (click)="callSpecialFunction('avaliable', vehicle)">Available Seats</button>
+              </div>
+          
+            </ng-container>
+          </div>
+          <div class="button-container">
+            <button class="custom-button" (click)="bookVehicle(vehicle)">Book a Vehicle </button>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
